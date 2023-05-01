@@ -1,0 +1,44 @@
+/*
+
+Import first this css in parent component !!!
+
+@import '@components/input/css/import-root-css
+
+*/
+
+:root {
+	--wow-font-size: 14px;
+	--wow-bg: #fff;
+	--wow-accent: #024ef9;
+	--wow-accent-light: #024ef922;
+	--wow-color: #272848;
+	--wow-placeholder: #7e7e90;
+	--wow-border: #e2e3ee;
+	--wow-padding: 15px 20px;
+	--wow-border-radius: 10px;
+	--wow-border-hover: #e9eaf3;
+	--wow-option-hover: #f4f4f4;
+	--wow-scroll-thumb: #cdcdcd;
+	--wow-scroll-bg: #f0f0f0;
+	--wow-icon: #98a5bd;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+		--wow-font-size: 14px;
+		--wow-bg: #262833;
+		--wow-accent: #024ef9;
+		--wow-accent-light: #024ef922;
+		--wow-color: #ffffff;
+		--wow-placeholder: #353842;
+		--wow-border: #353842;
+		--wow-padding: 15px 20px;
+		--wow-border-radius: 10px;
+		--wow-border-hover: #2d2f36;
+		--wow-option-hover: #333644;
+		--wow-scroll-thumb: #333644;
+		--wow-scroll-bg: #22242e;
+		--wow-icon: #353842;
+	}
+}

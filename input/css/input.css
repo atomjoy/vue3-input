@@ -1,0 +1,335 @@
+/*
+
+Import first in parent component !!!
+
+@import '@components/input/css/import-root-css
+
+*/
+
+::placeholder {
+	font-weight: 500;
+	font-size: var(--wow-font-size);
+	color: var(--wow-placeholder);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+label,
+input,
+select,
+textarea {
+	float: left;
+	width: 100%;
+	background: transparent;
+	margin-bottom: 13px;
+}
+
+label {
+	color: var(--wow-color);
+	font-size: var(--wow-font-size);
+	margin-bottom: 10px;
+}
+
+input,
+select,
+textarea {
+	color: var(--wow-color);
+	font-size: var(--wow-font-size);
+	padding: var(--wow-padding);
+	border-radius: var(--wow-border-radius);
+	border: 1px solid var(--wow-border);
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+	border-color: var(--wow-border-hover);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+	border-color: var(--wow-accent); /* #dbdce4 */
+	box-shadow: 0px 0px 0px 4px #1b5bff11;
+}
+
+textarea {
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 150px;
+}
+
+option {
+	float: left;
+	width: 100%;
+	color: var(--wow-color);
+	font-size: var(--wow-font-size);
+	background: var(--wow-bg);
+}
+
+.input-group {
+	position: relative;
+	float: left;
+	width: 100%;
+}
+
+.password-helper {
+	position: absolute;
+	width: 250px;
+	right: 0px;
+	top: -155px;
+	padding: 20px;
+	background: var(--wow-bg);
+	border: 1px solid var(--wow-border);
+	box-shadow: 0px 1px 3px rgb(0, 0, 0, 0.1);
+	border-radius: 8px;
+	font-size: 12px;
+	z-index: 1;
+	transition: all 0.6s;
+}
+
+.password-helper .flex {
+	display: flex;
+	align-items: center;
+	margin-bottom: 3px;
+}
+
+.password-helper-hidden {
+	display: inherit;
+}
+
+.password-helper svg {
+	margin-right: 10px;
+	fill: currentColor;
+	stroke: currentColor;
+	border-radius: 50%;
+	padding: 1px;
+	width: 24px;
+	height: 24px;
+	background: #d50012;
+	color: #fff;
+}
+
+.password-helper .green {
+	color: #fff;
+	background: #55cc55;
+}
+
+.toggle-info-icon {
+	display: inline;
+	position: absolute;
+	bottom: 20px;
+	right: 10px;
+	border: 1px solid var(--wow-icon);
+	border-radius: var(--wow-border-radius);
+	z-index: 1;
+	padding: 5px;
+	width: 36px;
+	height: 36px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.toggle-info-icon svg {
+	stroke-width: 0;
+	fill: currentColor;
+	stroke: currentColor;
+	color: var(--wow-icon) !important;
+}
+
+.toggle-type-icon {
+	display: inline;
+	position: absolute;
+	bottom: 20px;
+	right: 55px;
+	border: 1px solid transparent;
+	border-radius: var(--wow-border-radius);
+	z-index: 1;
+	padding: 5px;
+	width: 36px;
+	height: 36px;
+	text-align: center;
+	cursor: pointer;
+}
+
+.toggle-type-icon svg {
+	stroke-width: 0;
+	fill: currentColor;
+	stroke: currentColor;
+	color: var(--wow-icon) !important;
+}
+
+/* Select */
+
+.custom-select {
+	position: relative;
+	float: left;
+	width: 100%;
+	outline: none;
+	padding: 0px;
+	margin-bottom: 13px;
+}
+
+.custom-select .selected {
+	font-size: var(--wow-font-size);
+	font-weight: 600;
+	padding: var(--wow-padding);
+	box-sizing: border-box;
+	background-color: transparent;
+	border-radius: var(--wow-border-radius);
+	border: 1px solid var(--wow-border);
+	cursor: pointer;
+}
+
+.custom-select .selected.open {
+	border: 1px solid var(--wow-accent);
+	box-shadow: 0px 0px 0px 4px #1b5bff11;
+	/*
+  background: linear-gradient(transparent, transparent) padding-box, linear-gradient(to right, var(--wow-accent), darkorchid) border-box;
+	border: 1px solid transparent;
+  */
+}
+
+.custom-select .selected.inactive {
+	font-weight: 500;
+	font-size: var(--wow-font-size);
+	color: var(--wow-placeholder);
+}
+.custom-select .selected .selected-icon {
+	color: var(--wow-icon);
+	position: absolute;
+	top: 15px;
+	right: 20px;
+	transition: all 0.6s;
+}
+.custom-select .selected.open .selected-icon {
+	color: var(--wow-accent);
+	transform: rotate(180deg);
+}
+
+.custom-select .rounded {
+	position: absolute;
+	top: 60px;
+	left: 0;
+	height: auto;
+	padding: 10px;
+	border-radius: var(--wow-border-radius);
+	background: var(--wow-bg);
+	border: 1px solid var(--wow-accent);
+	box-shadow: 0px 9px 9px rgba(0, 0, 0, 0.2);
+	overflow: hidden;
+	z-index: 1;
+}
+
+.custom-select .items {
+	color: var(--wow-color);
+	max-height: 350px;
+	overflow-y: auto;
+	box-sizing: border-box;
+	scrollbar-width: thin;
+	scrollbar-color: var(--wow-scroll-thumb) var(--wow-scroll-bg);
+	z-index: 0;
+}
+
+.custom-select .items::-webkit-scrollbar {
+	width: 4px;
+	background: var(--wow-scroll-bg);
+}
+
+.custom-select .items::-webkit-scrollbar-thumb {
+	background: var(--wow-scroll-thumb);
+}
+
+.custom-select .items div {
+	color: var(--wow-color);
+	cursor: pointer;
+	user-select: none;
+	padding: var(--wow-padding);
+	font-size: var(--wow-font-size);
+}
+
+.custom-select .items div:hover {
+	background: var(--wow-option-hover);
+}
+
+.custom-select .items .selected-option {
+	color: var(--wow-color);
+	background: var(--wow-accent);
+}
+
+.selectHide {
+	display: none;
+}
+
+.highlight {
+	align-items: center;
+	background: var(--wow-accent-light);
+}
+
+.highlight .checkmark {
+	float: right;
+}
+
+/* Checkbox */
+
+.checkbox-line {
+	float: left;
+	width: 100%;
+	padding: 5px;
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+}
+.checkbox-line label {
+	margin-top: 10px;
+}
+.checkbox-line .checkbox {
+	position: absolute;
+	height: 30px;
+	width: 30px;
+	opacity: 0;
+	z-index: 1;
+	cursor: pointer;
+}
+.checkbox-line .checkmark {
+	box-sizing: border-box;
+	position: relative;
+	display: inline-block;
+	width: 30px;
+	min-width: 30px;
+	height: 30px;
+	margin-right: 15px;
+	text-align: center;
+	border: 1px solid var(--wow-border);
+	border-radius: var(--wow-border-radius);
+	z-index: 0;
+}
+.checkbox-line .checkmark svg {
+	box-sizing: border-box;
+	color: #fff;
+	width: 30px;
+	height: 30px;
+	padding: 5px;
+	border-radius: var(--wow-border-radius);
+	background: var(--wow-accent);
+	border: 1px solid var(--wow-accent);
+	text-align: center;
+	z-index: 0;
+}
+
+/* .checkbox-line .checkbox:checked + .checkmark {
+	border: transparent;
+}
+.checkbox-line .checkbox:checked + .checkmark .dot {
+	opacity: 1;
+	border: 1px solid var(--wow-accent);
+} */
+
+/* Radio */
+
+.checkbox-line .radiomark,
+.checkbox-line .radiomark svg {
+	border-radius: 50%;
+}
