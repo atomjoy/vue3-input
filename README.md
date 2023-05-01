@@ -29,3 +29,5 @@ Vue3 form inputs components (select, phone prefix, checkbox, input, textarea, pa
 <img src="https://raw.githubusercontent.com/atomjoy/vue3-input/main/input/example/vue3-inputs-prefix.png" width="100%">
 
 <img src="https://raw.githubusercontent.com/atomjoy/vue3-input/main/input/example/vue3-inputs.png" width="100%">
+
+<img src="https://raw.githubusercontent.com/atomjoy/vue3-input/main/input/example/vue3-checkbox-radio.png" width="100%">
