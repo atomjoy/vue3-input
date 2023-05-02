@@ -79,6 +79,10 @@ function renameKeys(obj = { id: '1', name: 'Alex' }, newKeys = { id: 'key', name
 }
 </script>
 
+<style>
+@import './css/input-root.css';
+</style>
+
 <style scoped>
 @import './css/input.css';
 </style>

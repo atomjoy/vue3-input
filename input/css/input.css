@@ -214,6 +214,7 @@ option {
 	top: 60px;
 	left: 0;
 	height: auto;
+	width: 100%;
 	padding: 10px;
 	border-radius: var(--wow-border-radius);
 	background: var(--wow-bg);
@@ -226,6 +227,7 @@ option {
 .custom-select .items {
 	color: var(--wow-color);
 	max-height: 350px;
+	width: 100%;
 	overflow-y: auto;
 	box-sizing: border-box;
 	scrollbar-width: thin;

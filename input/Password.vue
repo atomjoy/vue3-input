@@ -105,6 +105,10 @@ function toogleShow() {
 	</div>
 </template>
 
+<style>
+@import './css/input-root.css';
+</style>
+
 <style scoped>
 @import './css/input.css';
 </style>

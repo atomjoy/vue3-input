@@ -44,6 +44,10 @@ function updateInput(event) {
 }
 </script>
 
+<style>
+@import './css/input-root.css';
+</style>
+
 <style scoped>
 @import './css/input.css';
 </style>

@@ -39,7 +39,7 @@ function onSubmit(e) {
 	for (var pair of data.entries()) {
 		console.log('Input key:', pair[0], 'Value:', pair[1])
 	}
-	// send data to server axios request here (backend)
+	// send data to the server with axios here (backend)
 }
 </script>
 
@@ -88,8 +88,12 @@ function onSubmit(e) {
 </template>
 
 <style>
-/* Required input style import */
-@import '@/components/input/css/input-root.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+html {
+	font-size: 14px;
+	font-family: 'Poppins', Arial, sans-serif;
+}
 
 .color {
 	color: v-bind('accentColor') !important;

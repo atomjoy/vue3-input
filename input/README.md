@@ -1,23 +1,26 @@
 # Vue3 input components
 
-Vue3 form inputs components (select, phone prefix, checkbox, input, textarea, password with validation).
+Vue3 form inputs components (select, phone prefix, checkbox, radio, input, textarea, password with validation).
 
 ## Inputs (light/dark mode)
 
 - Input
-- Textarea
 - Select
-- Phone prefix (flags)
+- Textarea
 - Password (validation)
-- Checkbox (multiple, single)
 - Radiobox (select one)
+- Checkbox (multiple, single)
+- Phone prefix (flags, country, code)
 
-## Import style in parent component (reqired)
+## Import fonts
 
-```js
-<style>
-@import '@/components/input/css/input-root.css';
-</style>
+```css
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+html {
+  font-size: 14px;
+  font-family: 'Poppins', Arial, sans-serif;
+}
 ```
 
 ## Demo page
