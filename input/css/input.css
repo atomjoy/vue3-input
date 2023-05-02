@@ -127,7 +127,7 @@ option {
 .toggle-info-icon {
 	display: inline;
 	position: absolute;
-	top: calc(1.3em - 7px);
+	top: calc(1em - 7px);
 	right: 10px;
 	border: 1px solid var(--wow-icon);
 	border-radius: var(--wow-border-radius);
@@ -149,7 +149,7 @@ option {
 .toggle-type-icon {
 	display: inline;
 	position: absolute;
-	top: calc(1.3em - 7px);
+	top: calc(1em - 7px);
 	right: 55px;
 	border: 1px solid transparent;
 	border-radius: var(--wow-border-radius);
@@ -208,7 +208,7 @@ option {
 .custom-select .selected .selected-icon {
 	color: var(--wow-icon);
 	position: absolute;
-	top: 1.3em;
+	top: 1em;
 	right: 20px;
 	transition: all 0.6s;
 }

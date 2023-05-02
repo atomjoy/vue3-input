@@ -8,7 +8,7 @@
 	--wow-label: #272848; /* #79848f; */
 	--wow-placeholder: #dfe0ea; /* #7e7e90; */
 	--wow-border: #e2e3ee;
-	--wow-padding: 1.3rem 1.5rem;
+	--wow-padding: 1em 1.3em;
 	--wow-border-radius: 10px;
 	--wow-border-hover: #e9eaf3;
 	--wow-option-hover: #f4f4f4;
@@ -28,7 +28,7 @@
 		--wow-color: #ffffff;
 		--wow-placeholder: #353842;
 		--wow-border: #353842;
-		--wow-padding: 15px 20px;
+		--wow-padding: 1em 1.3em;
 		--wow-border-radius: 10px;
 		--wow-border-hover: #2d2f36;
 		--wow-option-hover: #333644;
