@@ -1,22 +1,17 @@
-/*
-
-Import first in parent component !!!
-
-@import '@components/input/css/import-root-css
-
-*/
-
 ::placeholder {
 	font-weight: 500;
 	font-size: var(--wow-font-size);
 	color: var(--wow-placeholder);
 }
 
-* {
+*,
+*::before,
+*::after {
 	box-sizing: border-box;
+	outline: 0px none transparent;
+	text-decoration: none;
 }
 
-label,
 input,
 select,
 textarea {
@@ -24,34 +19,38 @@ textarea {
 	width: 100%;
 	background: transparent;
 	margin-bottom: 13px;
-}
-
-label {
-	color: var(--wow-color);
+	font-weight: 600;
 	font-size: var(--wow-font-size);
-	margin-bottom: 10px;
-}
-
-input,
-select,
-textarea {
+	line-height: var(--wow-font-size);
 	color: var(--wow-color);
-	font-size: var(--wow-font-size);
 	padding: var(--wow-padding);
 	border-radius: var(--wow-border-radius);
 	border: 1px solid var(--wow-border);
+	background: var(--wow-input-bg);
+}
+
+label {
+	float: left;
+	width: 100%;
+	background: transparent;
+	margin-bottom: 13px;
+	margin-bottom: 10px;
+	font-weight: 600;
+	font-size: 1em;
+	color: var(--wow-label);
 }
 
 input:hover,
 select:hover,
 textarea:hover {
 	border-color: var(--wow-border-hover);
+	border: 1px solid var(--wow-border-hover);
 }
 
 input:focus,
 select:focus,
 textarea:focus {
-	border-color: var(--wow-accent); /* #dbdce4 */
+	border: 1px solid var(--wow-accent); /* #dbdce4 */
 	box-shadow: 0px 0px 0px 4px #1b5bff11;
 }
 
@@ -73,6 +72,7 @@ option {
 	position: relative;
 	float: left;
 	width: 100%;
+	font-size: var(--wow-font-size);
 }
 
 .password-helper {
@@ -117,10 +117,17 @@ option {
 	background: #55cc55;
 }
 
+.pass-box {
+	background: transparent;
+	position: relative;
+	float: left;
+	width: 100%;
+}
+
 .toggle-info-icon {
 	display: inline;
 	position: absolute;
-	bottom: 20px;
+	top: calc(1.3em - 7px);
 	right: 10px;
 	border: 1px solid var(--wow-icon);
 	border-radius: var(--wow-border-radius);
@@ -142,7 +149,7 @@ option {
 .toggle-type-icon {
 	display: inline;
 	position: absolute;
-	bottom: 20px;
+	top: calc(1.3em - 7px);
 	right: 55px;
 	border: 1px solid transparent;
 	border-radius: var(--wow-border-radius);
@@ -170,6 +177,7 @@ option {
 	outline: none;
 	padding: 0px;
 	margin-bottom: 13px;
+	font-size: var(--wow-font-size);
 }
 
 .custom-select .selected {
@@ -177,7 +185,7 @@ option {
 	font-weight: 600;
 	padding: var(--wow-padding);
 	box-sizing: border-box;
-	background-color: transparent;
+	background: var(--wow-input-bg);
 	border-radius: var(--wow-border-radius);
 	border: 1px solid var(--wow-border);
 	cursor: pointer;
@@ -200,7 +208,7 @@ option {
 .custom-select .selected .selected-icon {
 	color: var(--wow-icon);
 	position: absolute;
-	top: 15px;
+	top: 1.3em;
 	right: 20px;
 	transition: all 0.6s;
 }
@@ -211,7 +219,7 @@ option {
 
 .custom-select .rounded {
 	position: absolute;
-	top: 60px;
+	top: 4rem;
 	left: 0;
 	height: auto;
 	width: 100%;
@@ -246,10 +254,10 @@ option {
 
 .custom-select .items div {
 	color: var(--wow-color);
+	padding: var(--wow-padding);
 	cursor: pointer;
 	user-select: none;
-	padding: var(--wow-padding);
-	font-size: var(--wow-font-size);
+	font-size: 0.9em;
 }
 
 .custom-select .items div:hover {

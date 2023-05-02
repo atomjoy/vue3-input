@@ -90,10 +90,11 @@ function toogleShow() {
 	<div class="input-group">
 		<label>{{ props.label }}</label>
 
-		<input :type="props.type" :name="props.name" v-model="props.modelValue" :class="props.class" :placeholder="props.placeholder" @keyup="validatePass" @focus="onFocus" @blur="open = false" @input="emits('update:modelValue', $event.target.value)" />
-
-		<div class="toggle-info-icon" @click.stop="toogleInfo"><IconInfo /></div>
-		<div class="toggle-type-icon" @click.stop="toogleShow"><IconEye v-if="!show" /><IconEyeAlt v-if="show" /></div>
+		<div class="pass-box">
+			<input :type="props.type" :name="props.name" v-model="props.modelValue" :class="props.class" :placeholder="props.placeholder" @keyup="validatePass" @focus="onFocus" @blur="open = false" @input="emits('update:modelValue', $event.target.value)" />
+			<div class="toggle-info-icon" @click.stop="toogleInfo"><IconInfo /></div>
+			<div class="toggle-type-icon" @click.stop="toogleShow"><IconEye v-if="!show" /><IconEyeAlt v-if="show" /></div>
+		</div>
 
 		<div class="password-helper password-helper-open" v-if="open">
 			<div class="flex"><IconClose v-if="!check1" /><IconCheck v-if="check1" class="green" />Minimalna liczba znaków: {{ minChars }}</div>

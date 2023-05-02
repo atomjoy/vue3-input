@@ -1,20 +1,14 @@
-/*
-
-Import first this css in parent component !!!
-
-@import '@components/input/css/import-root-css
-
-*/
-
 :root {
-	--wow-font-size: 14px;
+	--wow-font-size: 15px;
 	--wow-bg: #fff;
+	--wow-input-bg: #f6f6f6;
 	--wow-accent: #024ef9;
 	--wow-accent-light: #024ef922;
 	--wow-color: #272848;
-	--wow-placeholder: #7e7e90;
+	--wow-label: #272848; /* #79848f; */
+	--wow-placeholder: #dfe0ea; /* #7e7e90; */
 	--wow-border: #e2e3ee;
-	--wow-padding: 15px 20px;
+	--wow-padding: 1.3rem 1.5rem;
 	--wow-border-radius: 10px;
 	--wow-border-hover: #e9eaf3;
 	--wow-option-hover: #f4f4f4;
@@ -28,6 +22,7 @@ Import first this css in parent component !!!
 		color-scheme: dark;
 		--wow-font-size: 14px;
 		--wow-bg: #262833;
+		--wow-input-bg: #21232c;
 		--wow-accent: #024ef9;
 		--wow-accent-light: #024ef922;
 		--wow-color: #ffffff;
