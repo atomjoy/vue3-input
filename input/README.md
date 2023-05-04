@@ -27,7 +27,7 @@ html {
 
 <https://github.com/atomjoy/vue3-input/blob/main/input/example/DemoPageView.vue>
 
-## Optional RWD style
+## RWD style
 
 Add in input-root.css
 
