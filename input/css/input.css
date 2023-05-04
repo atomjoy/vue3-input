@@ -214,13 +214,18 @@ option {
 .custom-select .selected .selected-icon {
 	color: var(--wow-icon);
 	position: absolute;
-	top: 1em;
 	right: 20px;
+	top: 50%;
+	transform: translateY(-50%);
 	transition: all 0.6s;
 }
 .custom-select .selected.open .selected-icon {
 	color: var(--wow-accent);
-	transform: rotate(180deg);
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	transform-origin: center;
+	transform: translateY(-50%) rotate(180deg);
 }
 
 .custom-select .rounded {
