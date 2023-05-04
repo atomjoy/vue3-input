@@ -21,7 +21,6 @@ textarea {
 	margin-bottom: 13px;
 	font-weight: 600;
 	font-size: var(--wow-font-size);
-	line-height: var(--wow-font-size);
 	color: var(--wow-color);
 	padding: var(--wow-padding);
 	border-radius: var(--wow-border-radius);
@@ -122,13 +121,19 @@ option {
 	position: relative;
 	float: left;
 	width: 100%;
+	margin-bottom: 13px;
+}
+
+.pass-box input {
+	margin-bottom: 0px;
 }
 
 .toggle-info-icon {
 	display: inline;
 	position: absolute;
-	top: calc(1em - 7px);
 	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
 	border: 1px solid var(--wow-icon);
 	border-radius: var(--wow-border-radius);
 	z-index: 1;
@@ -149,8 +154,9 @@ option {
 .toggle-type-icon {
 	display: inline;
 	position: absolute;
-	top: calc(1em - 7px);
 	right: 55px;
+	top: 50%;
+	transform: translateY(-50%);
 	border: 1px solid transparent;
 	border-radius: var(--wow-border-radius);
 	z-index: 1;

@@ -18,6 +18,7 @@ Vue3 form inputs components (select, phone prefix, checkbox, radio, input, texta
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 html {
+  font-size: 20px;
   font-family: 'Poppins', Arial, sans-serif;
 }
 ```
@@ -25,6 +26,36 @@ html {
 ## Demo page
 
 <https://github.com/atomjoy/vue3-input/blob/main/input/example/DemoPageView.vue>
+
+## Optional RWD style
+
+Add in input-root.css
+
+```css
+@media (max-width: 1600px) {
+ :root {
+  --wow-font-size: 18px;
+ }
+}
+
+@media (max-width: 1280px) {
+ :root {
+  --wow-font-size: 16px;
+ }
+}
+
+@media (max-width: 1024px) {
+ :root {
+  --wow-font-size: 14px;
+ }
+}
+
+@media (max-width: 480px) {
+ :root {
+  --wow-font-size: 14px;
+ }
+}
+```
 
 ## Images
 
