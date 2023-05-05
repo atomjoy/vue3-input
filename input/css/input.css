@@ -126,6 +126,7 @@ option {
 
 .pass-box input {
 	margin-bottom: 0px;
+	padding-right: 100px;
 }
 
 .toggle-info-icon {
@@ -230,7 +231,7 @@ option {
 
 .custom-select .rounded {
 	position: absolute;
-	top: 4rem;
+	top: 4.5rem;
 	left: 0;
 	height: auto;
 	width: 100%;
@@ -325,6 +326,7 @@ option {
 	text-align: center;
 	border: 1px solid var(--wow-border);
 	border-radius: var(--wow-border-radius);
+	background: var(--wow-input-bg);
 	z-index: 0;
 }
 .checkbox-line .checkmark svg {

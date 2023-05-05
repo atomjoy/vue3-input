@@ -5,8 +5,8 @@
 	--wow-input-bg: #f6f6f6;
 	--wow-accent: #024ef9;
 	--wow-accent-light: #024ef922;
-	--wow-color: #272848;
-	--wow-label: #272848; /* #79848f; */
+	--wow-color: #1d1d27;
+	--wow-label: #1d1d27; /* #79848f; */
 	--wow-placeholder: #dfe0ea; /* #7e7e90; */
 	--wow-border: #e2e3ee;
 	--wow-padding: 1em 1.3em;
@@ -21,12 +21,13 @@
 @media (prefers-color-scheme: dark) {
 	:root {
 		color-scheme: dark;
-		--wow-font-size: 14px;
+		--wow-font-size: 20px;
 		--wow-bg: #262833;
-		--wow-input-bg: #21232c;
+		--wow-input-bg: #242732;
 		--wow-accent: #024ef9;
 		--wow-accent-light: #024ef922;
 		--wow-color: #ffffff;
+		--wow-label: #79848f;
 		--wow-placeholder: #353842;
 		--wow-border: #353842;
 		--wow-padding: 1em 1.3em;
@@ -36,6 +37,11 @@
 		--wow-scroll-thumb: #333644;
 		--wow-scroll-bg: #22242e;
 		--wow-icon: #353842;
+	}
+
+	html,
+	body {
+		background: var(--wow-bg);
 	}
 }
 

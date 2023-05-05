@@ -18,7 +18,6 @@ Vue3 form inputs components (select, phone prefix, checkbox, radio, input, texta
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 html {
-  font-size: 20px;
   font-family: 'Poppins', Arial, sans-serif;
 }
 ```
@@ -27,11 +26,18 @@ html {
 
 <https://github.com/atomjoy/vue3-input/blob/main/input/example/DemoPageView.vue>
 
-## Optional RWD style
+## RWD style, dark mode
 
-Add in input-root.css
+Style in input-root.css
 
 ```css
+@media (prefers-color-scheme: dark) {
+  html,
+  body {
+    background: var(--wow-bg);
+  }
+}
+
 @media (max-width: 1600px) {
  :root {
   --wow-font-size: 18px;
