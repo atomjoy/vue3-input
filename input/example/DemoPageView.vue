@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
+// import { useRoute, useRouter, RouterLink } from 'vue-router'
 
 import Input from '@/components/input/Input.vue'
 import Select from '@/components/input/Select.vue'
@@ -9,7 +10,10 @@ import SelectPrefix from '@/components/input/SelectPrefix.vue'
 import Checkbox from '@/components/input/Checkbox.vue'
 import Radiobox from '@/components/input/Radiobox.vue'
 
-// Color v-bind css
+// Input v-focus
+const vFocus = { mounted: (el) => el.focus() }
+
+// Color
 let accentColor = '#ff6600'
 
 // Inputs
@@ -23,31 +27,44 @@ let payment = ref(['cash']) // Selected in array
 let remember_me = ref(false)
 let radio = ref('')
 
-// Password events
-function validPass(str) {
-	console.log('Fireworks! Valid pass event', str)
+onMounted(() => {
+	// Route
+	// const route = useRoute()
+	// console.log('Url query string', route?.query ?? null)
+})
+
+watch(input, (e) => {
+	console.log('Input', e)
+})
+
+function validPass(e) {
+	console.log('Hurrra! Valid pass', e)
 }
 
-function invalidPass(str) {
-	console.log('Bruhh! Invalid pass event', str)
+function invalidPass(e) {
+	console.log('Bruhh! Invalid pass', e)
 }
 
-// Form submit
+function validate(e) {
+	console.log('Input key', e.key)
+}
+
 function onSubmit(e) {
 	let data = new FormData(e.target)
-	// Show inputs
 	for (var pair of data.entries()) {
 		console.log('Input key:', pair[0], 'Value:', pair[1])
 	}
-	// send data to the server with axios here (backend)
+	// axios request here send to server
 }
 </script>
 
 <template>
-	<h1 class="color">Home page</h1>
+	<TopMenu />
 
-	<form @submit.prevent="onSubmit" class="form">
-		<Input type="text" name="name" v-model="input" placeholder="Name" label="Name" />
+	<p class="color">Home page {{ name }}</p>
+
+	<form @submit.prevent="onSubmit" style="margin: 50px auto; width: 90%; max-width: 530px; padding: 30px">
+		<Input :focus="'true'" type="text" name="name" v-model="input" placeholder="Name" label="Name" @keydown="validate" />
 
 		<Password type="password" name="password" v-model="password" placeholder="Password" label="Password" @valid="validPass" @invalid="invalidPass" />
 
@@ -70,18 +87,16 @@ function onSubmit(e) {
 
 		<Textarea name="desc" v-model="textarea" placeholder="Some text" label="Description" />
 
-		<!-- Multiple checkboxes array -->
 		<Checkbox label="Cash" value="cash" v-model="payment" name="pay_cash" />
 		<Checkbox label="Card" value="card" v-model="payment" name="pay_card" />
 
-		<!-- Single checkbox true/false  -->
 		<Checkbox label="Remember me" value="1" v-model="remember_me" name="remember_me" />
 
 		<Radiobox label="Banan" value="Banan" v-model="radio" name="radio" />
 		<Radiobox label="Melon" value="Melon" v-model="radio" name="radio" />
 		<Radiobox label="Cherry" value="Cherry" v-model="radio" name="radio" />
 
-		<button class="button">Update Settings</button>
+		<button class="button">Update</button>
 
 		<h4>{{ input }} {{ password }} {{ select1 }} {{ select2 }} {{ prefix }} {{ payment }} {{ remember_me }} {{ textarea }} {{ radio }}</h4>
 	</form>
@@ -90,9 +105,18 @@ function onSubmit(e) {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-html {
-	font-size: 14px;
-	font-family: 'Poppins', Arial, sans-serif;
+html,
+input,
+select,
+textarea,
+option,
+label,
+div {
+	font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+label i {
+	float: right;
 }
 
 .color {
@@ -108,6 +132,7 @@ html {
 	background: #ff5e4d;
 	border-radius: 10px;
 	border: 0px;
+	font-size: 16px;
 }
 
 .form {

@@ -1,5 +1,7 @@
 <script setup>
-const emits = defineEmits(['update:modelValue'])
+import { ref, onMounted } from 'vue'
+
+const emits = defineEmits(['update:modelValue', 'keydown', 'keyup'])
 const props = defineProps({
 	modelValue: [String, Number],
 	name: { type: String },
@@ -11,13 +13,22 @@ const props = defineProps({
 		default: 'text',
 		required: true,
 	},
+	focus: false,
+})
+
+let input = ref(null)
+
+onMounted(() => {
+	if (props.focus) {
+		input.value.focus()
+	}
 })
 </script>
 
 <template>
 	<div class="input-group">
 		<label v-if="props.label" :for="props.name">{{ props.label }} <slot></slot></label>
-		<input :type="props.type" :name="props.name" v-model="props.modelValue" :class="props.class" :placeholder="props.placeholder" @input="emits('update:modelValue', $event.target.value)" />
+		<input ref="input" :type="props.type" :name="props.name" v-model="props.modelValue" :class="props.class" :placeholder="props.placeholder" @input="emits('update:modelValue', $event.target.value)" @keydown="emits('keydown', $event)" @keyup="emits('keyup', $event)" />
 	</div>
 </template>
 

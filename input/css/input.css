@@ -19,7 +19,7 @@ label {
 	margin-bottom: 13px;
 	margin-bottom: 10px;
 	font-weight: 600;
-	font-size: 1em;
+	font-size: 0.9em;
 	color: var(--wow-label);
 }
 
@@ -136,7 +136,7 @@ option {
 	right: 10px;
 	top: 50%;
 	transform: translateY(-50%);
-	border: 1px solid var(--wow-icon);
+	border: 1px solid var(--wow-border);
 	border-radius: var(--wow-border-radius);
 	z-index: 1;
 	padding: 5px;

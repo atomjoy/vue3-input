@@ -1,5 +1,5 @@
 <script setup>
-import { ref, toRefs } from 'vue'
+import { ref, onMounted, toRefs } from 'vue'
 import IconClose from './icons/IconClose.vue'
 import IconCheck from './icons/IconCheck.vue'
 import IconInfo from './icons/IconInfo.vue'
@@ -19,6 +19,7 @@ const props = defineProps({
 		required: true,
 	},
 	minChars: { type: Number, default: 10 },
+	focus: false,
 })
 
 let open = ref(false)
@@ -30,8 +31,16 @@ let check3 = ref(false)
 let check4 = ref(false)
 let check5 = ref(false)
 
-function validatePass() {
-	let str = props.modelValue
+let input = ref(null)
+
+onMounted(() => {
+	if (props.focus) {
+		input.value.focus()
+	}
+})
+
+function validatePass(event) {
+	let str = event?.target?.value ?? ''
 
 	if (str.replace(' ', '').length >= props.minChars) {
 		check1.value = true
@@ -64,16 +73,15 @@ function validatePass() {
 	}
 
 	if (check1.value && check2.value && check3.value && check4.value && check5.value) {
-		console.log('Valid password')
-		emits('valid', props.modelValue)
+		emits('valid', str)
 	} else {
-		emits('invalid', props.modelValue)
+		emits('invalid', str)
 	}
 }
 
 function onFocus(e) {
 	open.value = true
-	validatePass()
+	validatePass(e)
 }
 
 function toogleInfo() {
@@ -83,7 +91,6 @@ function toogleInfo() {
 function toogleShow() {
 	show.value = !show.value
 	show.value ? (props.type = 'text') : (props.type = 'password')
-	console.log('Eye', show.value, props.type)
 }
 </script>
 <template>
@@ -91,7 +98,7 @@ function toogleShow() {
 		<label v-if="props.label" :for="props.name">{{ props.label }} <slot></slot></label>
 
 		<div class="pass-box">
-			<input :type="props.type" :name="props.name" v-model="props.modelValue" :class="props.class" :placeholder="props.placeholder" @keyup="validatePass" @focus="onFocus" @blur="open = false" @input="emits('update:modelValue', $event.target.value)" />
+			<input ref="input" :type="props.type" :name="props.name" v-model="props.modelValue" :class="props.class" :placeholder="props.placeholder" @keyup="validatePass" @focus="onFocus" @blur="open = false" @input="emits('update:modelValue', $event.target.value)" />
 			<div class="toggle-info-icon" @click.stop="toogleInfo"><IconInfo /></div>
 			<div class="toggle-type-icon" @click.stop="toogleShow"><IconEye v-if="!show" /><IconEyeAlt v-if="show" /></div>
 		</div>
