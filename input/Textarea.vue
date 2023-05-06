@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 <template>
 	<div class="input-group">
-		<label>{{ props.label }}</label>
+		<label v-if="props.label" :for="props.name">{{ props.label }} <slot></slot></label>
 		<textarea :name="props.name" v-model="props.modelValue" :class="props.class" :placeholder="props.placeholder" @input="emits('update:modelValue', $event.target.value)"></textarea>
 	</div>
 </template>

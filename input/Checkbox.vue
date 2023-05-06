@@ -5,7 +5,7 @@
 			<div class="checkmark">
 				<IconCheckmark v-if="checked" />
 			</div>
-			<label>{{ props.label }}</label>
+			<label v-if="props.label" :for="props.name">{{ props.label }} <slot></slot></label>
 		</div>
 	</div>
 </template>

@@ -1,6 +1,6 @@
 <template>
 	<div class="input-group">
-		<label v-if="label" :for="name">{{ label }}</label>
+		<label v-if="label" :for="name">{{ label }} <slot></slot></label>
 		<div class="custom-select" @blur="open = false" :tabindex="tabindex">
 			<div class="selected" :class="{ open: open, inactive: inactive }" @click="open = !open">{{ selected }} <IconChevronDown class="selected-icon" /></div>
 			<div class="rounded" :class="{ selectHide: !open }">

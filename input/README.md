@@ -14,11 +14,17 @@ Vue3 form inputs components (select, phone prefix, checkbox, radio, input, texta
 
 ## Import fonts
 
+assets/css/main.css
+
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-html {
-  font-family: 'Poppins', Arial, sans-serif;
+html, input, select, textarea, option, label, div {
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+}
+
+label i {
+  float: right;
 }
 ```
 

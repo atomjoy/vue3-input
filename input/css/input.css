@@ -12,6 +12,17 @@
 	text-decoration: none;
 }
 
+label {
+	float: left;
+	width: 100%;
+	background: transparent;
+	margin-bottom: 13px;
+	margin-bottom: 10px;
+	font-weight: 600;
+	font-size: 1em;
+	color: var(--wow-label);
+}
+
 input,
 select,
 textarea {
@@ -26,17 +37,6 @@ textarea {
 	border-radius: var(--wow-border-radius);
 	border: 1px solid var(--wow-border);
 	background: var(--wow-input-bg);
-}
-
-label {
-	float: left;
-	width: 100%;
-	background: transparent;
-	margin-bottom: 13px;
-	margin-bottom: 10px;
-	font-weight: 600;
-	font-size: 1em;
-	color: var(--wow-label);
 }
 
 input:hover,
@@ -93,6 +93,7 @@ option {
 	display: flex;
 	align-items: center;
 	margin-bottom: 3px;
+	font-size: 12px !important;
 }
 
 .password-helper-hidden {

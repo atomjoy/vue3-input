@@ -88,7 +88,7 @@ function toogleShow() {
 </script>
 <template>
 	<div class="input-group">
-		<label>{{ props.label }}</label>
+		<label v-if="props.label" :for="props.name">{{ props.label }} <slot></slot></label>
 
 		<div class="pass-box">
 			<input :type="props.type" :name="props.name" v-model="props.modelValue" :class="props.class" :placeholder="props.placeholder" @keyup="validatePass" @focus="onFocus" @blur="open = false" @input="emits('update:modelValue', $event.target.value)" />
