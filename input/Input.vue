@@ -1,3 +1,10 @@
+<template>
+	<div class="input-group">
+		<label v-if="props.label" :for="props.name">{{ props.label }} <slot></slot></label>
+		<input ref="input" :type="props.type" :name="props.name" v-model="props.modelValue" :class="props.class" :placeholder="props.placeholder" @input="emits('update:modelValue', $event.target.value)" @keydown="emits('keydown', $event)" @keyup="emits('keyup', $event)" />
+	</div>
+</template>
+
 <script setup>
 import { ref, onMounted } from 'vue'
 
@@ -24,13 +31,6 @@ onMounted(() => {
 	}
 })
 </script>
-
-<template>
-	<div class="input-group">
-		<label v-if="props.label" :for="props.name">{{ props.label }} <slot></slot></label>
-		<input ref="input" :type="props.type" :name="props.name" v-model="props.modelValue" :class="props.class" :placeholder="props.placeholder" @input="emits('update:modelValue', $event.target.value)" @keydown="emits('keydown', $event)" @keyup="emits('keyup', $event)" />
-	</div>
-</template>
 
 <style>
 @import './css/input-root.css';

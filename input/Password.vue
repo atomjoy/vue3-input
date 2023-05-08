@@ -1,3 +1,23 @@
+<template>
+	<div class="input-group">
+		<label v-if="props.label" :for="props.name">{{ props.label }} <slot></slot></label>
+
+		<div class="pass-box">
+			<input ref="input" :type="props.type" :name="props.name" v-model="props.modelValue" :class="props.class" :placeholder="props.placeholder" @keyup="validatePass" @focus="onFocus" @blur="open = false" @input="emits('update:modelValue', $event.target.value)" />
+			<div class="toggle-info-icon" @click.stop="toogleInfo"><IconInfo /></div>
+			<div class="toggle-type-icon" @click.stop="toogleShow"><IconEye v-if="!show" /><IconEyeAlt v-if="show" /></div>
+		</div>
+
+		<div class="password-helper password-helper-open" v-if="open">
+			<div class="flex"><IconClose v-if="!check1" /><IconCheck v-if="check1" class="green" />Minimalna liczba znaków: {{ minChars }}</div>
+			<div class="flex"><IconClose v-if="!check2" /><IconCheck v-if="check2" class="green" />Zawiera dużą literę</div>
+			<div class="flex"><IconClose v-if="!check3" /><IconCheck v-if="check3" class="green" />Zawiera małą literę</div>
+			<div class="flex"><IconClose v-if="!check4" /><IconCheck v-if="check4" class="green" />Zawiera liczbę</div>
+			<div class="flex"><IconClose v-if="!check5" /><IconCheck v-if="check5" class="green" />Zawiera znak specjalny</div>
+		</div>
+	</div>
+</template>
+
 <script setup>
 import { ref, onMounted, toRefs } from 'vue'
 import IconClose from './icons/IconClose.vue'
@@ -93,25 +113,6 @@ function toogleShow() {
 	show.value ? (props.type = 'text') : (props.type = 'password')
 }
 </script>
-<template>
-	<div class="input-group">
-		<label v-if="props.label" :for="props.name">{{ props.label }} <slot></slot></label>
-
-		<div class="pass-box">
-			<input ref="input" :type="props.type" :name="props.name" v-model="props.modelValue" :class="props.class" :placeholder="props.placeholder" @keyup="validatePass" @focus="onFocus" @blur="open = false" @input="emits('update:modelValue', $event.target.value)" />
-			<div class="toggle-info-icon" @click.stop="toogleInfo"><IconInfo /></div>
-			<div class="toggle-type-icon" @click.stop="toogleShow"><IconEye v-if="!show" /><IconEyeAlt v-if="show" /></div>
-		</div>
-
-		<div class="password-helper password-helper-open" v-if="open">
-			<div class="flex"><IconClose v-if="!check1" /><IconCheck v-if="check1" class="green" />Minimalna liczba znaków: {{ minChars }}</div>
-			<div class="flex"><IconClose v-if="!check2" /><IconCheck v-if="check2" class="green" />Zawiera dużą literę</div>
-			<div class="flex"><IconClose v-if="!check3" /><IconCheck v-if="check3" class="green" />Zawiera małą literę</div>
-			<div class="flex"><IconClose v-if="!check4" /><IconCheck v-if="check4" class="green" />Zawiera liczbę</div>
-			<div class="flex"><IconClose v-if="!check5" /><IconCheck v-if="check5" class="green" />Zawiera znak specjalny</div>
-		</div>
-	</div>
-</template>
 
 <style>
 @import './css/input-root.css';

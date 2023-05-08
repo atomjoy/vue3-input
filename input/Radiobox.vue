@@ -1,7 +1,7 @@
 <template>
 	<div class="input-group">
 		<div class="checkbox-line">
-			<input class="checkbox radiomark" type="radio" :checked="checked" :value="props.value" :name="props.name" @change="onChange" />
+			<input class="checkbox radiomark" type="radio" :value="props.value" :name="props.name" v-model="props.modelValue" @change="emits('update:modelValue', props.modelValue)" />
 			<div class="checkmark radiomark">
 				<IconRadiomark v-if="checked" />
 			</div>
@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { ref, onUpdated } from 'vue'
+import { computed } from 'vue'
 import IconRadiomark from './icons/IconRadiomark.vue'
 
 const emits = defineEmits(['update:modelValue', 'change'])
@@ -22,18 +22,9 @@ const props = defineProps({
 	label: { type: String, required: true },
 })
 
-let checked = ref(false)
-
-onUpdated(() => {
-	if (props.value != props.modelValue) {
-		checked.value = false
-	}
+const checked = computed(() => {
+	return props.value == props.modelValue
 })
-
-function onChange() {
-	emits('update:modelValue', props.value)
-	checked.value = true
-}
 </script>
 
 <style>
@@ -46,15 +37,11 @@ function onChange() {
 
 <!--
 
-  // Multiple Array with strings values
-  let money = ref(['card','cash']) // Default selected in array
+  // Value '' or 'Cherry'
+  let radio = ref('')
 
-  <Checkbox label="Cash" value="cash" v-model="money" name="pay_cash" />
-	<Checkbox label="Card" value="card" v-model="money" name="pay_card" />
-
-  // Single (true|false)
-  let remember_me = ref(true)
-
-  <Checkbox label="Remember me 1" value="1" v-model="remember_me" name="remember_me" />
+  <Radiobox label="Banan" value="Banan" v-model="radio" name="radio" />
+  <Radiobox label="Melon" value="Melon" v-model="radio" name="radio" />
+  <Radiobox label="Cherry" value="Cherry" v-model="radio" name="radio" />
 
 -->

@@ -1,7 +1,7 @@
 <template>
 	<div class="input-group">
 		<div class="checkbox-line">
-			<input class="checkbox" type="checkbox" :checked="checked" :value="props.value" :name="props.name" @change="updateInput" />
+			<input class="checkbox" type="checkbox" :value="props.value" :name="props.name" v-model="props.modelValue" @change="emits('update:modelValue', props.modelValue)" />
 			<div class="checkmark">
 				<IconCheckmark v-if="checked" />
 			</div>
@@ -28,20 +28,6 @@ const checked = computed(() => {
 	}
 	return props.modelValue
 })
-function updateInput(event) {
-	let check = event.target.checked
-	if (props.modelValue instanceof Array) {
-		let newValue = [...props.modelValue]
-		if (check) {
-			newValue.push(props.value)
-		} else {
-			newValue.splice(newValue.indexOf(props.value), 1)
-		}
-		emits('update:modelValue', newValue)
-	} else {
-		emits('update:modelValue', check)
-	}
-}
 </script>
 
 <style>

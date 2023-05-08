@@ -24,9 +24,11 @@ const props = defineProps({
 </style>
 
 <!--
-  import Input from '@/components/form/Input.vue'
 
-  let value = 'Maxiu'
+  import Textarea from '@/components/form/Textarea.vue'
 
-  <Input type="text" name="name" v-model="value" />
+  let textarea = ''
+
+  <Textarea name="desc" v-model="textarea" placeholder="Some text" label="Description" />
+
 -->
