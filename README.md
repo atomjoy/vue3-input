@@ -1,6 +1,6 @@
 # Vue3 input components
 
-Vue3 form inputs components (select, phone prefix, checkbox, radio, input, textarea, password with validation).
+Vue3 form input components (select, phone prefix, checkbox, radio, input, textarea, password with validation).
 
 ## Inputs (light/dark mode)
 
