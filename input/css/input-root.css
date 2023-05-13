@@ -45,6 +45,46 @@
 	}
 }
 
+[color-scheme='light'] {
+	color-scheme: light;
+	--wow-font-size: 20px;
+	--wow-bg: #fff;
+	--wow-input-bg: #f6f6f6;
+	--wow-accent: #024ef9;
+	--wow-accent-light: #024ef922;
+	--wow-color: #272848;
+	--wow-label: #272848; /* #79848f; #1d1d27; */
+	--wow-placeholder: #dfe0ea; /* #7e7e90; */
+	--wow-border: #e2e3ee;
+	--wow-padding: 1em 1.3em;
+	--wow-border-radius: 10px;
+	--wow-border-hover: #e9eaf3;
+	--wow-option-hover: #f4f4f4;
+	--wow-scroll-thumb: #cdcdcd;
+	--wow-scroll-bg: #f0f0f0;
+	--wow-icon: #98a5bd;
+}
+
+[color-scheme='dark'] {
+	color-scheme: dark;
+	--wow-font-size: 20px;
+	--wow-bg: #262833;
+	--wow-input-bg: #242732;
+	--wow-accent: #024ef9;
+	--wow-accent-light: #024ef922;
+	--wow-color: #ffffff;
+	--wow-label: #79848f;
+	--wow-placeholder: #353842;
+	--wow-border: #353842;
+	--wow-padding: 1em 1.3em;
+	--wow-border-radius: 10px;
+	--wow-border-hover: #2d2f36;
+	--wow-option-hover: #333644;
+	--wow-scroll-thumb: #333644;
+	--wow-scroll-bg: #22242e;
+	--wow-icon: #353842;
+}
+
 @media (max-width: 1600px) {
 	:root {
 		--wow-font-size: 18px;
