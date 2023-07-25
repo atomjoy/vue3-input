@@ -96,7 +96,7 @@ function onSubmit(e) {
 
 		<button class="button">Update</button>
 
-		<p></p>
+		<h4>{{ select_code }} {{ select_country }} {{ select_name }} {{ input }} {{ password }} {{ payment }} {{ remember_me }} {{ textarea }} {{ radio }}</h4>
 	</form>
 </template>
 
