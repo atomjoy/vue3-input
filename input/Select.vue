@@ -73,10 +73,10 @@ onMounted(() => {
 		modelValue.value = null
 	}
 
-	// document.addEventListener('click', (e) => {
-	// 	let a = document.querySelectorAll('.custom-select-open')
-	// 	a.forEach((el) => el.click())
-	// })
+	document.addEventListener('click', (e) => {
+		let a = document.querySelectorAll('.custom-select-open')
+		a.forEach((el) => el.click())
+	})
 })
 
 function updateClick(option = null) {
