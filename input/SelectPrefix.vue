@@ -1,11 +1,13 @@
 <template>
 	<div class="input-group">
 		<label v-if="label" :for="name">{{ label }} <slot></slot></label>
-		<div class="custom-select" @blur="open = false" :tabindex="tabindex">
-			<div class="selected" :class="{ open: open, inactive: inactive }" @click="open = !open">{{ selected }} <IconChevronDown class="selected-icon" /></div>
-			<div class="rounded" :class="{ selectHide: !open }">
-				<div ref="items" class="items">
-					<div v-for="o of options" :key="o.prefix" :value="o.prefix" @click="updateClick(o)" :class="{ highlight: o.prefix == modelValue }">{{ o.name }} {{ o.emoji }} +{{ o.prefix }} <IconCheckmark v-if="o.prefix == modelValue" class="checkmark" /></div>
+		<div :class="{ 'custom-select': true, 'custom-select-open': open }" :data-uid="uid" @blur="open = false" @click.stop="openSelect">
+			<div class="selected" :class="{ open: open, inactive: inactive }">{{ selected }} <IconChevronDown class="selected-icon" /></div>
+			<div class="rounded">
+				<input type="text" placeholder="Search" @click.stop="" @keyup="filterOptions" />
+				<div ref="items" class="items" :tabindex="tabindex">
+					<div v-if="search_check" class="select-search-error">{{ searchError }}</div>
+					<div v-for="(o, index) in filtered_options" :key="index" :value="o.prefix" @click.stop="updateClick(o)" :class="{ highlight: o.prefix == modelValue }">{{ o.name }} {{ o.emoji }} +{{ o.prefix }} <IconCheckmark v-if="o.prefix == modelValue" class="checkmark" /></div>
 				</div>
 			</div>
 			<input ref="input" type="hidden" v-model="modelValue" :name="name" />
@@ -25,22 +27,33 @@ const props = defineProps({
 	name: { type: String },
 	modelValue: { type: String },
 	tabindex: { type: Number, default: 0 },
+	searchError: { type: String, default: 'Option does not exists.' },
 })
-let { label, name, modelValue, tabindex } = toRefs(props)
+let { label, name, modelValue, tabindex, searchError } = toRefs(props)
 const input = ref(null)
 const selected = ref(null)
 const inactive = ref(false)
 const open = ref(false)
+const search_check = ref(false)
+const filtered_options = ref(options)
+const uid = ref('custom-select-' + Date.now())
 
-function clear() {
-	selected.value = `${options[0].emoji}  +${options[0].prefix}`
-	modelValue.value = options[0].prefix
-	inactive.value = false
+function openSelect() {
+	console.log('Select click')
+	let all = document.querySelectorAll('.custom-select-open')
+	all.forEach((el) => {
+		let data = el.dataset.uid ?? null
+		console.log(data)
+		if (data != uid.value) {
+			el.click()
+		}
+	})
+	open.value = !open.value
 }
 
 onMounted(() => {
 	if (modelValue.value !== null) {
-		let option = options?.find((option) => parseInt(option.prefix) === modelValue.value)
+		let option = options?.find((o) => parseInt(o.prefix) === modelValue.value)
 		if (option?.prefix) {
 			selected.value = `${option.emoji}  +${option.prefix}`
 		} else {
@@ -49,19 +62,34 @@ onMounted(() => {
 	} else {
 		clear()
 	}
+
+	document.addEventListener('click', (e) => {
+		let a = document.querySelectorAll('.custom-select-open')
+		a.forEach((el) => el.click())
+	})
 })
+
+function clear() {
+	selected.value = `${options[0].emoji}  +${options[0].prefix}`
+	modelValue.value = options[0].prefix
+	inactive.value = false
+}
 
 function updateClick(option = null) {
 	if (option == null) {
 		clear()
-		open.value = false
 	} else {
 		modelValue.value = option.prefix ?? null
 		selected.value = `${option.emoji}  +${option.prefix}`
 		inactive.value = false
-		open.value = false
 	}
-	emit('update:modelValue', modelValue.value)
+	open.value = false
+	emit('update:modelValue', modelValue)
+}
+
+function filterOptions(e) {
+	filtered_options.value = options.filter((o) => o.name.toLowerCase().startsWith(e.target.value.toLowerCase()))
+	search_check.value = filtered_options.value.length == 0 ? true : false
 }
 </script>
 

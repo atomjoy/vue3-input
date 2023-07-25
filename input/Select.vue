@@ -1,12 +1,14 @@
 <template>
 	<div class="input-group">
 		<label v-if="label" :for="name">{{ label }} <slot></slot></label>
-		<div class="custom-select" @blur="open = false" :tabindex="tabindex">
-			<div class="selected" :class="{ open: open, inactive: inactive }" @click="open = !open">{{ selected }} <IconChevronDown class="selected-icon" /></div>
-			<div class="rounded" :class="{ selectHide: !open }">
-				<div ref="items" class="items">
-					<div :key="0" @click="updateClick(null)">{{ placeholder }}</div>
-					<div v-for="(option, i) of options" :key="i" @click="updateClick(option)" :class="{ highlight: check(option, modelValue) }">{{ option.value ?? option }} <IconCheckmark v-if="check(option, modelValue)" class="checkmark" /></div>
+		<div :class="{ 'custom-select': true, 'custom-select-open': open }" :data-uid="uid" @blur="open = false" @click.stop="openSelect">
+			<div class="selected" :class="{ open: open, inactive: inactive }">{{ selected }} <IconChevronDown class="selected-icon" /></div>
+			<div class="rounded">
+				<input type="text" placeholder="Search" @click.stop="" @keyup="filterOptions" />
+				<div ref="items" class="items" :tabindex="tabindex">
+					<div v-if="search_check" class="select-search-error">{{ searchError }}</div>
+					<div v-if="!search_check" :key="0" @click.stop="updateClick(null)">{{ placeholder }}</div>
+					<div v-for="(option, i) of filtered_options" :key="i" @click.stop="updateClick(option)" :class="{ highlight: check(option, modelValue) }">{{ option.value ?? option }} <IconCheckmark v-if="check(option, modelValue)" class="checkmark" /></div>
 				</div>
 			</div>
 			<input ref="input" type="hidden" v-model="modelValue" :name="name" />
@@ -27,12 +29,29 @@ const props = defineProps({
 	modelValue: { type: String },
 	tabindex: { type: Number, default: 0 },
 	placeholder: { type: String, default: 'Choose' },
+	searchError: { type: String, default: 'Option does not exists.' },
 })
 const { label, name, options, modelValue, tabindex, placeholder } = toRefs(props)
 const input = ref(null)
 const selected = ref(null)
 const inactive = ref(false)
 const open = ref(false)
+const search_check = ref(false)
+const filtered_options = ref(options.value)
+const uid = ref('custom-select-' + Date.now())
+
+function openSelect() {
+	let all = document.querySelectorAll('.custom-select-open')
+	all.forEach((el) => {
+		let data = el.dataset.uid ?? null
+		console.log(data)
+		if (data != uid.value) {
+			el.click()
+		}
+	})
+
+	open.value = !open.value
+}
 
 // Test option highligt
 function check(option, modelValue) {
@@ -53,6 +72,11 @@ onMounted(() => {
 		inactive.value = true
 		modelValue.value = null
 	}
+
+	document.addEventListener('click', (e) => {
+		let a = document.querySelectorAll('.custom-select-open')
+		a.forEach((el) => el.click())
+	})
 })
 
 function updateClick(option = null) {
@@ -60,14 +84,13 @@ function updateClick(option = null) {
 		modelValue.value = null
 		selected.value = placeholder.value
 		inactive.value = true
-		open.value = false
 	} else {
 		modelValue.value = option.key ?? option
 		selected.value = option.value ?? option
 		inactive.value = false
-		open.value = false
 	}
-	emit('update:modelValue', modelValue.value)
+	open.value = false
+	emit('update:modelValue', modelValue)
 }
 
 function renameKeys(obj = { id: '1', name: 'Alex' }, newKeys = { id: 'key', name: 'value' }) {
@@ -76,6 +99,17 @@ function renameKeys(obj = { id: '1', name: 'Alex' }, newKeys = { id: 'key', name
 		return { [newKey]: obj[key] }
 	})
 	return Object.assign({}, ...keyValues)
+}
+
+function filterOptions(e) {
+	filtered_options.value = options?.value?.filter((o) => {
+		if (o?.value) {
+			return o.value.toLowerCase().startsWith(e.target.value.toLowerCase())
+		} else {
+			return o.toLowerCase().startsWith(e.target.value.toLowerCase())
+		}
+	})
+	search_check.value = filtered_options.value.length == 0 ? true : false
 }
 </script>
 
