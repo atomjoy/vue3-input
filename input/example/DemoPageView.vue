@@ -139,4 +139,11 @@ label i {
 	max-width: 480px;
 	padding: 30px;
 }
+
+h4 {
+	float: left;
+	width: 100%;
+	border: 1px solid #222;
+	padding: 20px;
+}
 </style>
