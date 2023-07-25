@@ -39,15 +39,14 @@ const filtered_options = ref(options)
 const uid = ref('custom-select-' + Date.now())
 
 function openSelect() {
-	console.log('Select click')
 	let all = document.querySelectorAll('.custom-select-open')
 	all.forEach((el) => {
 		let data = el.dataset.uid ?? null
-		console.log(data)
 		if (data != uid.value) {
 			el.click()
 		}
 	})
+
 	open.value = !open.value
 }
 
@@ -63,10 +62,10 @@ onMounted(() => {
 		clear()
 	}
 
-	document.addEventListener('click', (e) => {
-		let a = document.querySelectorAll('.custom-select-open')
-		a.forEach((el) => el.click())
-	})
+	// document.addEventListener('click', (e) => {
+	// 	let a = document.querySelectorAll('.custom-select-open')
+	// 	a.forEach((el) => el.click())
+	// })
 })
 
 function clear() {
@@ -84,7 +83,7 @@ function updateClick(option = null) {
 		inactive.value = false
 	}
 	open.value = false
-	emit('update:modelValue', modelValue)
+	emit('update:modelValue', modelValue.value)
 }
 
 function filterOptions(e) {

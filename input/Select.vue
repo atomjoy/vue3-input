@@ -73,10 +73,10 @@ onMounted(() => {
 		modelValue.value = null
 	}
 
-	document.addEventListener('click', (e) => {
-		let a = document.querySelectorAll('.custom-select-open')
-		a.forEach((el) => el.click())
-	})
+	// document.addEventListener('click', (e) => {
+	// 	let a = document.querySelectorAll('.custom-select-open')
+	// 	a.forEach((el) => el.click())
+	// })
 })
 
 function updateClick(option = null) {
@@ -90,7 +90,7 @@ function updateClick(option = null) {
 		inactive.value = false
 	}
 	open.value = false
-	emit('update:modelValue', modelValue)
+	emit('update:modelValue', modelValue.value)
 }
 
 function renameKeys(obj = { id: '1', name: 'Alex' }, newKeys = { id: 'key', name: 'value' }) {
