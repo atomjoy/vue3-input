@@ -16,10 +16,9 @@ label {
 	float: left;
 	width: 100%;
 	background: transparent;
-	margin-bottom: 13px;
-	margin-bottom: 10px;
 	font-weight: 600;
-	font-size: 0.9em;
+	font-size: 1em;
+	line-height: 2.5;
 	color: var(--wow-label);
 }
 
@@ -37,6 +36,7 @@ textarea {
 	border-radius: var(--wow-border-radius);
 	border: 1px solid var(--wow-border);
 	background: var(--wow-input-bg);
+	font-family: var(--wow-font-family);
 }
 
 input:hover,
@@ -76,10 +76,10 @@ option {
 
 .password-helper {
 	position: absolute;
-	width: 250px;
+	width: 230px;
 	right: 0px;
-	top: -155px;
-	padding: 20px;
+	top: -100px;
+	padding: 10px;
 	background: var(--wow-bg);
 	border: 1px solid var(--wow-border);
 	box-shadow: 0px 1px 3px rgb(0, 0, 0, 0.1);
@@ -93,7 +93,7 @@ option {
 	display: flex;
 	align-items: center;
 	margin-bottom: 3px;
-	font-size: 12px !important;
+	font-size: 11px !important;
 }
 
 .password-helper-hidden {
@@ -106,15 +106,13 @@ option {
 	stroke: currentColor;
 	border-radius: 50%;
 	padding: 1px;
-	width: 24px;
-	height: 24px;
-	background: #d50012;
-	color: #fff;
+	width: 14px;
+	height: 14px;
+	color: #d50012;
 }
 
 .password-helper .green {
-	color: #fff;
-	background: #55cc55;
+	color: #55cc55;
 }
 
 .pass-box {
@@ -247,13 +245,14 @@ option {
 
 .custom-select .items {
 	color: var(--wow-color);
-	max-height: 350px;
+	max-height: 200px;
+	min-height: 200px;
 	width: 100%;
 	overflow-y: auto;
 	box-sizing: border-box;
 	scrollbar-width: thin;
 	scrollbar-color: var(--wow-scroll-thumb) var(--wow-scroll-bg);
-	z-index: 0;
+	z-index: 1;
 }
 
 .custom-select .items::-webkit-scrollbar {
@@ -270,7 +269,8 @@ option {
 	padding: var(--wow-padding);
 	cursor: pointer;
 	user-select: none;
-	font-size: 0.9em;
+	font-size: 1em;
+	font-weight: 400;
 }
 
 .custom-select .items div:hover {
@@ -282,8 +282,16 @@ option {
 	background: var(--wow-accent);
 }
 
-.selectHide {
+.selectHide-old {
 	display: none;
+}
+
+.custom-select .rounded {
+	display: none;
+}
+
+.custom-select-open .rounded {
+	display: inherit !important;
 }
 
 .highlight {
