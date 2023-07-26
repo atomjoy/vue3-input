@@ -1,16 +1,16 @@
-# Vue3 input components
+# Vue3 form field components
 
-Vue3 form input components (select, phone prefix, checkbox, radio, input, textarea, password with validation).
+Vue3 form field components with search and passowrd validation.
 
 ## Inputs (light/dark mode)
 
 - Input
-- Select
 - Textarea
+- Select (search)
 - Password (validation)
 - Radiobox (select one)
 - Checkbox (multiple, single)
-- Phone prefix (flags, country, code)
+- Phone prefix (flags emoji, country name, country code)
 
 ## Import fonts
 
@@ -26,13 +26,17 @@ html, input, select, textarea, option, label, div {
 label i {
   float: right;
 }
+
+h1.full {
+ text-align: left;
+}
 ```
 
 ## Demo page
 
 <https://github.com/atomjoy/vue3-input/blob/main/input/example/DemoPageView.vue>
 
-## RWD style, dark mode
+## RWD settings and dark mode style
 
 Style in input-root.css
 
