@@ -44,7 +44,6 @@ function openSelect() {
 	let all = document.querySelectorAll('.custom-select-open')
 	all.forEach((el) => {
 		let data = el.dataset.uid ?? null
-		console.log(data)
 		if (data != uid.value) {
 			el.click()
 		}
@@ -91,14 +90,6 @@ function updateClick(option = null) {
 	}
 	open.value = false
 	emit('update:modelValue', modelValue.value)
-}
-
-function renameKeys(obj = { id: '1', name: 'Alex' }, newKeys = { id: 'key', name: 'value' }) {
-	const keyValues = Object.keys(obj).map((key) => {
-		const newKey = newKeys[key] || key
-		return { [newKey]: obj[key] }
-	})
-	return Object.assign({}, ...keyValues)
 }
 
 function filterOptions(e) {

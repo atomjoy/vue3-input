@@ -59,11 +59,8 @@ function onSubmit(e) {
 </script>
 
 <template>
-	<TopMenu />
-
-	<p class="color">Home page</p>
-
 	<form @submit.prevent="onSubmit" style="margin: 50px auto; width: 90%; max-width: 530px; padding: 30px">
+		<h1>Form example</h1>
 		<Input :focus="'true'" type="text" name="name" v-model="input" placeholder="Name" label="Name" @keydown="validate" />
 
 		<Password type="password" name="password" v-model="password" placeholder="Password" label="Password" @valid="validPass" @invalid="invalidPass" />
