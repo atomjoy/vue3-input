@@ -36,7 +36,6 @@ textarea {
 	border-radius: var(--wow-border-radius);
 	border: 1px solid var(--wow-border);
 	background: var(--wow-input-bg);
-	font-family: var(--wow-font-family);
 }
 
 input:hover,
