@@ -363,7 +363,7 @@ option {
 
 .checkbox-checkmark-onoff {
 	min-height: 40px;
-	min-width: 80px;
+	min-width: 70px;
 	right: 5px;
 }
 
@@ -371,7 +371,7 @@ option {
 	float: left;
 	box-sizing: border-box;
 	height: 35px;
-	width: 85px;
+	width: 70px;
 	padding: 4px;
 	margin-left: 15px;
 	background: var(--wow-input-bg);
@@ -383,8 +383,8 @@ option {
 
 .checkmark-onoff .dot {
 	float: left;
-	min-width: 26.5px;
-	min-height: 26.5px;
+	min-width: 26px;
+	min-height: 26px;
 	background: var(--wow-bg);
 	border-radius: var(--wow-border-radius);
 	border: 1px solid var(--wow-border);
@@ -398,7 +398,7 @@ option {
 }
 
 .checkmark-onoff-checked .dot {
-	margin-left: 35px;
+	margin-left: 25px;
 	background: var(--wow-accent);
 	border: 1px solid var(--wow-accent);
 	transform: rotate(180deg);
