@@ -9,7 +9,7 @@ Vue3 form field components with search and passowrd validation.
 - Select (search)
 - Password (validation)
 - Radiobox (select one)
-- Checkbox (multiple, single)
+- Checkbox (multiple, single, onoff toggle)
 - Phone prefix (flags emoji, country name, country code)
 
 ## Import fonts
