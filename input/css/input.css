@@ -313,7 +313,8 @@ option {
 	align-items: center;
 }
 .checkbox-line label {
-	margin-top: 10px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 }
 .checkbox-line .checkbox {
 	position: absolute;
@@ -361,7 +362,7 @@ option {
 /* Checkbox onoff */
 
 .checkbox-checkmark-onoff {
-	min-height: 45px;
+	min-height: 40px;
 	min-width: 80px;
 	right: 5px;
 }
@@ -369,9 +370,9 @@ option {
 .checkmark-onoff {
 	float: left;
 	box-sizing: border-box;
-	height: 42px;
-	width: 92px;
-	padding: 5px;
+	height: 35px;
+	width: 85px;
+	padding: 4px;
 	margin-left: 15px;
 	background: var(--wow-input-bg);
 	border: 1px solid var(--wow-border);
@@ -382,8 +383,8 @@ option {
 
 .checkmark-onoff .dot {
 	float: left;
-	min-width: 30px;
-	min-height: 30px;
+	min-width: 26.5px;
+	min-height: 26.5px;
 	background: var(--wow-bg);
 	border-radius: var(--wow-border-radius);
 	border: 1px solid var(--wow-border);
