@@ -39,15 +39,8 @@ const checked = computed(() => {
 
 <!--
 
-  // Multiple Array with strings values
-  let money = ref(['card','cash']) // Default selected in array
+  let lights = ref(true)
 
-  <Checkbox label="Cash" value="cash" v-model="money" name="pay_cash" />
-	<Checkbox label="Card" value="card" v-model="money" name="pay_card" />
-
-  // Single (true|false)
-  let remember_me = ref(true)
-
-  <Checkbox label="Remember me 1" value="1" v-model="remember_me" name="remember_me" />
+  <CheckboxOnOff label="Enable lights" value="1" v-model="lights" name="lights" />
 
 -->
