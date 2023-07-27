@@ -398,7 +398,7 @@ option {
 }
 
 .checkmark-onoff-checked .dot {
-	float: right;
+	margin-left: 35px;
 	background: var(--wow-accent);
 	border: 1px solid var(--wow-accent);
 	transform: rotate(180deg);
