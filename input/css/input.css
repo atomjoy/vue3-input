@@ -359,6 +359,51 @@ option {
 	border: 1px solid var(--wow-accent);
 } */
 
+/* Checkbox onoff */
+
+.checkbox-checkmark-onoff {
+	min-height: 45px;
+	min-width: 80px;
+	right: 5px;
+}
+
+.checkmark-onoff {
+	float: left;
+	box-sizing: border-box;
+	height: 42px;
+	width: 92px;
+	padding: 5px;
+	margin-left: 15px;
+	background: var(--wow-input-bg);
+	border: 1px solid var(--wow-border);
+	border-radius: var(--wow-border-radius);
+	transition: all 0.6s;
+	overflow: hidden;
+}
+
+.checkmark-onoff .dot {
+	float: left;
+	min-width: 30px;
+	min-height: 30px;
+	background: var(--wow-bg);
+	border-radius: var(--wow-border-radius);
+	border: 1px solid var(--wow-border);
+	box-shadow: 0px 1px 3px var(--wow-checkbox-shadow);
+	transition: all 0.6s;
+}
+
+.checkmark-onoff-checked {
+	background: var(--wow-accent-light);
+	border: 1px solid var(--wow-accent);
+}
+
+.checkmark-onoff-checked .dot {
+	float: right;
+	background: var(--wow-accent);
+	border: 1px solid var(--wow-accent);
+	transform: rotate(180deg);
+}
+
 /* Radio */
 
 .checkbox-line .radiomark,

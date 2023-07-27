@@ -9,6 +9,7 @@ import Textarea from '@/components/input/Textarea.vue'
 import SelectPrefix from '@/components/input/SelectPrefix.vue'
 import Checkbox from '@/components/input/Checkbox.vue'
 import Radiobox from '@/components/input/Radiobox.vue'
+import CheckboxOnOff from '@/components/input/CheckboxOnOff.vue'
 
 // Input v-focus
 const vFocus = { mounted: (el) => el.focus() }
@@ -26,6 +27,7 @@ let radio = ref('')
 let select_country = ref(48)
 let select_code = ref(1)
 let select_name = ref('Ala')
+let lights = ref(false)
 
 onMounted(() => {
 	// Route
@@ -82,6 +84,8 @@ function onSubmit(e) {
 
 		<Textarea name="desc" v-model="textarea" placeholder="Some text" label="Description" />
 
+		<CheckboxOnOff label="Enable lights" value="1" v-model="lights" name="lights" />
+
 		<Checkbox label="Cash" value="cash" v-model="payment" name="pay_cash" />
 		<Checkbox label="Card" value="card" v-model="payment" name="pay_card" />
 
@@ -93,7 +97,7 @@ function onSubmit(e) {
 
 		<button class="button">Update</button>
 
-		<h4>{{ select_code }} {{ select_country }} {{ select_name }} {{ input }} {{ password }} {{ payment }} {{ remember_me }} {{ textarea }} {{ radio }}</h4>
+		<h4>{{ lights }} | {{ select_code }} | {{ select_country }} | {{ select_name }} | {{ input }} | {{ password }} | {{ payment }} | {{ remember_me }} | {{ textarea }} | {{ radio }}</h4>
 	</form>
 </template>
 
