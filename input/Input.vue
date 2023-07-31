@@ -1,14 +1,24 @@
 <template>
 	<div class="input-group">
 		<label v-if="props.label" :for="props.name">{{ props.label }} <slot></slot></label>
-		<input ref="input" :type="props.type" :name="props.name" v-model="props.modelValue" :class="props.class" :placeholder="props.placeholder" @input="emits('update:modelValue', $event.target.value)" @keydown="emits('keydown', $event)" @keyup="emits('keyup', $event)" />
+		<input
+			ref="input"
+			:type="props.type"
+			:name="props.name"
+			v-model="props.modelValue"
+			:class="props.class"
+			:placeholder="props.placeholder"
+			@input="emits('update:modelValue', $event.target.value)"
+			@keydown="emits('keydown', $event)"
+			@keyup="emits('keyup', $event)"
+			@change="emits('change', $event)" />
 	</div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
 
-const emits = defineEmits(['update:modelValue', 'keydown', 'keyup'])
+const emits = defineEmits(['update:modelValue', 'keydown', 'keyup', 'change'])
 const props = defineProps({
 	modelValue: [String, Number],
 	name: { type: String },
