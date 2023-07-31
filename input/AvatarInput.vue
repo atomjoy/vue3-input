@@ -65,8 +65,8 @@ async function removeAvatar() {
 	border-radius: 50%;
 	cursor: pointer;
 	color: #fff;
-	border: 2px solid var(--bg-primary);
-	background: var(--accent-primary);
+	border: 2px solid var(--wow-bg);
+	background: var(--wow-accent);
 }
 .delete-avatar svg {
 	width: 20px;
@@ -87,6 +87,6 @@ async function removeAvatar() {
 	margin-top: 10px;
 	border-radius: 50%;
 	object-fit: cover;
-	border: 2px solid var(--accent-primary);
+	border: 2px solid var(--wow-accent);
 }
 </style>
