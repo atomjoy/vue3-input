@@ -1,10 +1,11 @@
 <script setup>
 import axios from 'axios'
 import Input from '@/components/input/Input.vue'
+import avatar from './profil/avatar.png'
 import { toRefs } from 'vue'
 
 const props = defineProps({
-	image: { default: 'https://i.pravatar.cc/128' },
+	image: { default: avatar },
 	label: { default: 'Select image' },
 	remove_avatar_url: { default: 'web/api/remove/avatar' },
 	remove_success: { default: 'Avatar removed.' },
@@ -23,6 +24,7 @@ function getImagePath(e) {
 async function removeAvatar() {
 	try {
 		await axios.get(props.remove_avatar_url)
+		image.value = avatar
 		alert(props.remove_success)
 	} catch (err) {
 		alert(props.remove_error)
@@ -92,3 +94,5 @@ async function removeAvatar() {
 	border: 2px solid var(--wow-accent);
 }
 </style>
+
+<!-- Avatars https://i.pravatar.cc/128 -->
