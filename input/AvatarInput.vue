@@ -7,6 +7,8 @@ const props = defineProps({
 	image: { default: 'https://i.pravatar.cc/128' },
 	label: { default: 'Select image' },
 	remove_avatar_url: { default: 'web/api/remove/avatar' },
+	remove_success: { default: 'Avatar removed.' },
+	remove_error: { default: 'Avatar not removed.' },
 })
 
 const { image } = toRefs(props)
@@ -21,9 +23,9 @@ function getImagePath(e) {
 async function removeAvatar() {
 	try {
 		await axios.get(props.remove_avatar_url)
-		alert('Avatar removed.')
+		alert(props.remove_success)
 	} catch (err) {
-		alert('Avatar not removed.')
+		alert(props.remove_error)
 	}
 }
 </script>
@@ -43,7 +45,7 @@ async function removeAvatar() {
 
 			<img :src="image" class="avatar-image" />
 
-			<Input @change="getImagePath" :label="$t(props.label)" name="image" type="file" />
+			<Input @change="getImagePath" :label="props.label" name="image" type="file" />
 		</div>
 	</div>
 </template>
