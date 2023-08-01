@@ -45,7 +45,7 @@ async function removeAvatar() {
 				</svg>
 			</div>
 
-			<img :src="image" class="avatar-image" />
+			<img :src="image ?? avatar" class="avatar-image" />
 
 			<Input @change="getImagePath" :label="props.label" name="image" type="file" />
 		</div>
