@@ -23,7 +23,7 @@ function getImagePath(e) {
 
 async function removeAvatar() {
 	try {
-		await axios.get(props.remove_avatar_url)
+		await axios.post(props.remove_avatar_url)
 		image.value = avatar
 		alert(props.remove_success)
 	} catch (err) {
