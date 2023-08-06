@@ -1,30 +1,44 @@
 <script setup>
 import axios from 'axios'
 import Input from '@/components/input/Input.vue'
-import avatar from './profil/avatar.png'
-import { toRefs } from 'vue'
+import avatar_default from './profil/avatar.png'
+import { toRefs, ref } from 'vue'
 
 const props = defineProps({
-	image: { default: avatar },
+	avatar: { default: avatar_default },
 	label: { default: 'Select image' },
-	remove_avatar_url: { default: 'web/api/remove/avatar' },
+	remove_avatar_url: { default: '/web/api/remove/avatar' },
 	remove_success: { default: 'Avatar removed.' },
 	remove_error: { default: 'Avatar not removed.' },
 })
 
-const { image } = toRefs(props)
+const avatar_path = ref(null)
+
+if (props.avatar) {
+	avatar_path.value = '/storage/' + props.avatar
+
+	if (props.avatar.toLowerCase().startsWith('http://')) {
+		avatar_path.value = props.avatar
+	}
+
+	if (props.avatar.toLowerCase().startsWith('https://')) {
+		avatar_path.value = props.avatar
+	}
+} else {
+	avatar_path.value = avatar_default
+}
 
 function getImagePath(e) {
 	const path = URL.createObjectURL(e.target.files[0])
 	if (path) {
-		image.value = path
+		avatar_path.value = path
 	}
 }
 
 async function removeAvatar() {
 	try {
 		await axios.post(props.remove_avatar_url, [])
-		image.value = avatar
+		avatar_path.value = avatar_default
 		alert(props.remove_success)
 	} catch (err) {
 		alert(props.remove_error)
@@ -45,9 +59,9 @@ async function removeAvatar() {
 				</svg>
 			</div>
 
-			<img :src="image ?? avatar" class="avatar-image" />
+			<img :src="avatar_path" class="avatar-image" />
 
-			<Input @change="getImagePath" :label="props.label" name="image" type="file" />
+			<Input @change="getImagePath" :label="props.label" name="avatar" type="file" />
 		</div>
 	</div>
 </template>
