@@ -80,3 +80,7 @@ Style in input-root.css
 <img src="https://raw.githubusercontent.com/atomjoy/vue3-input/main/input/example/vue3-inputs.png" width="100%">
 
 <img src="https://raw.githubusercontent.com/atomjoy/vue3-input/main/input/example/vue3-checkbox-radio.png" width="100%">
+
+## LICENSE
+
+This project is licensed under the terms of the GNU GPLv3 license.
