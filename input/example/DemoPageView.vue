@@ -7,6 +7,7 @@ import Select from '@/components/input/Select.vue'
 import Password from '@/components/input/Password.vue'
 import Textarea from '@/components/input/Textarea.vue'
 import SelectPrefix from '@/components/input/SelectPrefix.vue'
+import SelectCountry from '@/components/input/SelectCountry.vue'
 import Checkbox from '@/components/input/Checkbox.vue'
 import Radiobox from '@/components/input/Radiobox.vue'
 import CheckboxOnOff from '@/components/input/CheckboxOnOff.vue'
@@ -28,6 +29,7 @@ let select_country = ref(48)
 let select_code = ref(1)
 let select_name = ref('Ala')
 let lights = ref(false)
+let country_name = ref('Poland')
 
 onMounted(() => {
 	// Route
@@ -66,8 +68,12 @@ function onSubmit(e) {
 		<Input :focus="'true'" type="text" name="name" v-model="input" placeholder="Name" label="Name" @keydown="validate" />
 
 		<Password type="password" name="password" v-model="password" placeholder="Password" label="Password" @valid="validPass" @invalid="invalidPass" />
+	
+		<SelectPrefix name="prefix" v-model="select_country" :label="$t('Prefix')" />
 
-		<SelectPrefix name="prefix" v-model="select_country" :label="$t('register.Prefix')" />
+		<SelectCountry name="country" v-model="country_name" :label="$t('Country')" />
+		
+		<!-- <Select name="country" v-model="select_country_name" :label="$t('Country')" :options="['Poland', 'England', 'Usa']" /> -->
 
 		<Select
 			name="code"
@@ -78,9 +84,9 @@ function onSubmit(e) {
 				{ key: 2, value: 'Css' },
 				{ key: 3, value: 'Html' },
 				{ key: 4, value: 'JavaScript' },
-			]" />
+			]" />		
 
-		<Select name="code" v-model="select_name" :label="$t('Language')" :options="['Ala', 'Ma', 'Kota']" />
+		<Select name="name" v-model="select_name" :label="$t('Name')" :options="['Ala', 'Ma', 'Kota']" />
 
 		<Textarea name="desc" v-model="textarea" placeholder="Some text" label="Description" />
 
@@ -97,7 +103,7 @@ function onSubmit(e) {
 
 		<button class="button">Update</button>
 
-		<h4>{{ lights }} | {{ select_code }} | {{ select_country }} | {{ select_name }} | {{ input }} | {{ password }} | {{ payment }} | {{ remember_me }} | {{ textarea }} | {{ radio }}</h4>
+		<h4> {{ country_name }} {{ lights }} | {{ select_code }} | {{ select_country }} | {{ select_name }} | {{ input }} | {{ password }} | {{ payment }} | {{ remember_me }} | {{ textarea }} | {{ radio }}</h4>
 	</form>
 </template>
 
